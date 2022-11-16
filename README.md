@@ -1,26 +1,27 @@
-# Docker Compose Nodejs and MongoDB example
+# Nodejs and MongoDB CRUD Template
+To run this template out of the box on Brev click here:
+
+[![](https://uohmivykqgnnbiouffke.supabase.co/storage/v1/object/public/landingpage/pill-border-lg.png)](https://console.brev.dev/environment/new?repo=https://github.com/brevdev/CRUD-react-nodejs-mongodb)
 
 Much of the code in this was borrowed from [Tien Nguyen](https://github.com/tienbku). Please check him out!
 
-This repo runs a CRUD app which allows you to add and delete tutorials. A tutorial has the shape:
+## Running everything:
 
-```json
-{
-  "title": "Learning to code",
-  "description": "How to learn the best skill in the world",
-  "published": true
-}
-```
-
-## Running everything in docker-compose:
-
-There are two services in this repo: the backend node api and the database. Running:
+Running:
 
 ```bash
 docker-compose up
 ```
 
-will spin them both up.
+will spin up the database and the node backend.
+
+Then to run the frontend react app:
+```bash
+cd frontend
+npm i
+npm run start
+```
+Then head over to http://localhost:8081 (make sure you forward ports via VScode if you're on Brev)
 
 ## Running the backend outside of Docker Compose:
 
