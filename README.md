@@ -3,11 +3,14 @@
 Much of the code in this was borrowed from [Tien Nguyen](https://github.com/tienbku). Please check him out!
 
 This repo runs a CRUD app which allows you to add and delete tutorials. A tutorial has the shape:
+
+```
 {
 title: "Learning to code",
 description: "How to learn the best skill in the world",
 published: true
 }
+```
 
 ## Running everything in docker-compose:
 
