@@ -1,4 +1,4 @@
-# Nodejs and MongoDB CRUD Template
+# React, Nodejs and MongoDB CRUD Template
 To run this template out of the box on Brev click here:
 
 [![](https://uohmivykqgnnbiouffke.supabase.co/storage/v1/object/public/landingpage/pill-border-lg.png)](https://console.brev.dev/environment/new?repo=https://github.com/brevdev/CRUD-react-nodejs-mongodb)
