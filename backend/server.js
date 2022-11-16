@@ -17,8 +17,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const db = require("./app/models");
-console.log("LHUILLIER")
-console.log("DB URL IS: ", db.url); // THE URL WE WANT IS: mongodb://root:123456@mongodb:27017/bezkoder_db?authSource=admin
 
 db.mongoose
   .connect(db.url, {
@@ -26,7 +24,6 @@ db.mongoose
     useUnifiedTopology: true
   })
   .then(() => {
-    console.log("jansa")
     console.log("Connected to the database!");
   })
   .catch(err => {

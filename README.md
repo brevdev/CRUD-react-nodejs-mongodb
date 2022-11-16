@@ -4,11 +4,11 @@ Much of the code in this was borrowed from [Tien Nguyen](https://github.com/tien
 
 This repo runs a CRUD app which allows you to add and delete tutorials. A tutorial has the shape:
 
-```
+```json
 {
-title: "Learning to code",
-description: "How to learn the best skill in the world",
-published: true
+  "title": "Learning to code",
+  "description": "How to learn the best skill in the world",
+  "published": true
 }
 ```
 
