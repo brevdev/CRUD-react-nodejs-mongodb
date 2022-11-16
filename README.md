@@ -1,43 +1,64 @@
 # Docker Compose Nodejs and MongoDB example
 
-## Run the System
-We can easily run the whole with only a single command:
+Much of the code in this was borrowed from [Tien Nguyen](https://github.com/tienbku). Please check him out!
+
+This repo runs a CRUD app which allows you to add and delete tutorials. A tutorial has the shape:
+{
+title: "Learning to code",
+description: "How to learn the best skill in the world",
+published: true
+}
+
+## Running everything in docker-compose:
+
+There are two services in this repo: the backend node api and the database. Running:
+
 ```bash
 docker-compose up
 ```
 
-Docker will pull the MongoDB and Node.js images (if our machine does not have it before).
+will spin them both up.
 
-The services can be run on the background with command:
+## Running the backend outside of Docker Compose:
+
+You can then pull the backend node service out of docker compose and run it locally:
+
+1. Comment out lines 15 to 30 of docker-compose.yml
+2. Run:
+
 ```bash
-docker-compose up -d
+docker-compose up
 ```
 
-## Stop the System
-Stopping all the running containers is also simple with a single command:
+3. Then cd into backend and run it via npm:
+
 ```bash
-docker-compose down
+cd backend
+npm i
+npm start
 ```
 
-If you need to stop and remove all containers, networks, and all images used by any service in <em>docker-compose.yml</em> file, use the command:
+## Making calls to your server:
+
+To view all tutorial entries:
+
 ```bash
-docker-compose down --rmi all
+curl http://localhost:8080/api/tutorials
 ```
 
-For more detail, please visit:
-> [Docker Compose Node.js Express and MongoDB example](https://www.bezkoder.com/docker-compose-nodejs-mongodb/)
+To add a new tutorial:
 
-Related Posts:
-> [Node.js, Express & MongoDb: Build a CRUD Rest Api example](https://bezkoder.com/node-express-mongodb-crud-rest-api/)
+```bash
+curl --request POST \
+  --url http://localhost:8080/api/tutorials \
+  --header 'Content-Type: application/json' \
+  --data '{
+	"title": "Learning to code",
+	"description": "How to learn the best skill in the world",
+	"published": true
+}'
+```
 
-> [Server side Pagination in Node.js with MongoDB and Mongoose](https://bezkoder.com/node-js-mongodb-pagination/)
+## Forwarding ports:
 
-Security:
-> [Node.js + MongoDB: User Authentication & Authorization with JWT](https://bezkoder.com/node-js-mongodb-auth-jwt/)
-
-Associations:
-> [MongoDB One-to-One relationship tutorial with Mongoose examples](https://bezkoder.com/mongoose-one-to-one-relationship-example/)
-
-> [MongoDB One-to-Many Relationship tutorial with Mongoose examples](https://bezkoder.com/mongoose-one-to-many-relationship/)
-
-> [MongoDB Many-to-Many Relationship with Mongoose examples](https://bezkoder.com/mongodb-many-to-many-mongoose/)
+To forward a port to your local machine (if you're using Brev), in VScode you should see a ports section next to terminal. Enter port 8080 to forward.
